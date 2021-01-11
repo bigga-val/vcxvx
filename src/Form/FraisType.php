@@ -14,7 +14,6 @@ class FraisType extends AbstractType
         $builder
             ->add('designation')
             ->add('montant')
-            ->add('is_active')
         ;
     }
 

@@ -18,11 +18,12 @@ class TuteurController extends AbstractController
     {
         $tuteur = new Tuteur();
         $form = $this->createForm(TuteurType::class, $tuteur);
+
         if ($form->isSubmitted() and $form->isValid())
         {
-            dd($tuteur);
+            //dd($tuteur);
             $entityManager->persist($tuteur);
-            //$entityManager->flush();
+            $entityManager->flush();
         }
         return $this->render('tuteur/nouveau.html.twig', [
             'controller_name' => 'TuteurController',

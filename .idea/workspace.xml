@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2363c5d4-2c58-45c2-b1d3-910504cf3d15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/FraisController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/FraisType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/frais/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FraisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FraisController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TuteurController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TuteurController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/FraisType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FraisType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/frais/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/frais/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +168,7 @@
       <workItem from="1610180791745" duration="8799000" />
       <workItem from="1610182292552" duration="659000" />
       <workItem from="1610352654034" duration="6245000" />
-      <workItem from="1610352703652" duration="3764000" />
+      <workItem from="1610352703652" duration="7077000" />
     </task>
     <servers />
   </component>
@@ -179,9 +179,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="339" y="162" key="run.anything.popup" timestamp="1610182852737">
+    <state x="339" y="162" key="run.anything.popup" timestamp="1610355429443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610182852737" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610355429443" />
   </component>
 </project>

@@ -27,16 +27,71 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Liste Eleves Actifs</h3>
+                            <h3 class="mb-0">Parametres Frais</h3>
                         </div>
                         <div class="col text-right">
                             <a href="#!" class="btn btn-sm btn-primary">See all</a>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
+                <div class="container">
                     {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    {{ form_widget(form.designation, {attr: {'class': 'form-control', 'placeholder': 'Designation Frais'}}) }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    {{ form_widget(form.montant, {attr: { 'class': 'form-control', 'placeholder': 'Montant Fixé' }}) }}
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="SUBMIT" class="btn btn-primary" value="ENREGISTRER">
+                                </div>
+                            </div>
+                        </div>
                     {{ form_end(form) }}
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <h3>Liste des frais disponibles</h3>
+                                <input type="text" class="form-control my-2" placeholder="Rechercher Frais...">
+                                <table class="table align-items-center table-flush">
+                                    <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Désignation</th>
+                                        <th scope="col">Montant</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% set i = 1 %}
+                                    {% for frais in liste_frais %}
+                                        <tr>
+                                            <td>
+                                                {{ i }}
+                                            </td>
+                                            <td>
+                                                {{ frais.designation }}
+                                            </td>
+                                            <td>
+                                                {{ frais.montant }}
+                                            </td>
+                                            <td>
+                                                <a href="">Editer</a>
+                                            </td>
+                                        </tr>
+                                        {% set i = i + 1 %}
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

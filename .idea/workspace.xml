@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2363c5d4-2c58-45c2-b1d3-910504cf3d15" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/FraisController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/FraisType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/frais/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/inscription/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +168,7 @@
       <workItem from="1610180791745" duration="8799000" />
       <workItem from="1610182292552" duration="659000" />
       <workItem from="1610352654034" duration="6245000" />
-      <workItem from="1610352703652" duration="2268000" />
+      <workItem from="1610352703652" duration="3764000" />
     </task>
     <servers />
   </component>

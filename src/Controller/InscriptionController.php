@@ -53,6 +53,7 @@ class InscriptionController extends AbstractController
                     ->find($data['tuteur']));
                 $eleve->setAdresse($data['adresse']);
                 $eleve->setDateNaissance(new \DateTime($data['date_naissance']));
+                $eleve->setLieuNaissance($data['lieu_naissance']);
                 $eleve->setNomComplet($data['nom_complet']);
                 $entityManager->persist($eleve);
 

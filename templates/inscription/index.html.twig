@@ -1,0 +1,94 @@
+{% include 'extension/sidebar.html.twig' %}
+<!-- Header -->
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- Card stats -->
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">Page visit</h3>
+                        </div>
+                        <div class="col text-right">
+                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <form method>
+                        <div class="row">
+                            <div class="col">
+                                <select name="tuteur" id="tuteur" class="form-control">
+                                    {% for tuteur in tuteurs %}
+                                        <option value="{{ tuteur.id }}">{{ tuteur.nomComplet }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="categorie" id="categorie" class="form-control">
+                                    {% for categorie in categories %}
+                                        <option value="{{ categorie.id }}">{{ categorie.designation }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="etat" id="etat" class="form-control">
+                                    {% for etat in etats %}
+                                        <option value="{{ etat.id }}">{{ etat.designation }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select name="etat" id="etat" class="form-control">
+                                    {% for classe in classes %}
+                                        <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nom et Postnom" name="nomComplet" id="nomComplet">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Adresse" name="adresse" id="adresse">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Lieu de naissance" name="date_naissance" id="lieu_naissance">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder="date_naissance">
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="ENREGISTRER">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "extension/footer.html.twig" %}
+</div>

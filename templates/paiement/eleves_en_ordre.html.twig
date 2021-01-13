@@ -27,44 +27,68 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Eleves non actifs</h3>
+                            <select name="classe" id="classe" class="form-control">
+                                {% for classe in liste_classes %}
+                                    <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select name="frais" id="frais" class="form-control">
+                                {% for frais in liste_frais %}
+                                    <option value="{{ frais.id }}">{{ frais.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <input type="button" class="btn btn-primary" name="recherche" id="recherche" value="RECHERCHER">
                         </div>
                         <div class="col text-right">
-                            <button onclick="HTMLtoPDF()" class="btn btn-sm btn-primary">See all</button>
+                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
                         </div>
                     </div>
                 </div>
-                <div class="container" id="HTMLtoPDF">
-                    <input type="text" class="form-control my-2" id="myInput" placeholder="Recherche...">
+                <div class="table-responsive" id="tableau">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nom complet</th>
                             <th scope="col">Classe</th>
-                            <th scope="col">Type</th>
+                            <th scope="col">Frais</th>
+                            <th scope="col">M. Fixe</th>
+                            <th scope="col">M. Payé</th>
+                            <th scope="col">M. Resté</th>
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody id="tbody">
                         {% set i = 1 %}
-                        {% for inscription in inscriptions %}
+                        {% for paiement in paiements %}
                             <tr>
                                 <td>
                                     {{ i }}
                                 </td>
                                 <td>
-                                    {{ inscription.eleve.nomComplet|upper }}
+                                    {{ paiement.inscription.eleve.nomComplet|upper }}
                                 </td>
                                 <td>
-                                    {{ inscription.classe.designation ~' '~inscription.classe.options.designation }}
+                                    {{ paiement.inscription.classe.designation~' '~paiement.inscription.classe.options.designation }}
                                 </td>
                                 <td>
-                                    {{ inscription.eleve.etat.designation }}
+                                    {{ paiement.frais.designation }}
                                 </td>
                                 <td>
-                                    <a href="{{ path('paiement', {'inscription':inscription.id}) }}">Payer</a>
-                                    <a href="{{ path('affectation_eleve', {'id': inscription.id}) }}">Affecter</a>
+                                    {{ paiement.frais.montant }}
+                                </td>
+                                <td>
+                                    {{ paiement.montantPaye }}
+                                </td>
+                                <td>
+                                    {{ paiement.montantReste }}
+                                </td>
+                                <td>
+                                    <a href="">Facturer</a>
                                 </td>
                             </tr>
                             {% set i = i + 1 %}
@@ -77,3 +101,6 @@
     </div>
     {% include "extension/footer.html.twig" %}
 </div>
+{% block javascripts %}
+     <script src="{{ asset('my_js/paiement_frais_par_classe.js') }}"></script>
+{% endblock %}

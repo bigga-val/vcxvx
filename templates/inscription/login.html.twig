@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <!-- Projects table -->
+                    <input type="text" class="form-control" id="myInput" placeholder="Recherche...">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
@@ -46,7 +46,7 @@
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tbody">
                         {% set i = 1 %}
                         {% for inscription in inscriptions %}
                             <tr>
@@ -77,3 +77,11 @@
     </div>
     {% include "extension/footer.html.twig" %}
 </div>
+
+
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>

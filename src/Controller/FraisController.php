@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Frais;
+use App\Entity\Tuteur;
 use App\Form\FraisType;
+use App\Form\TuteurType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,7 +23,6 @@ class FraisController extends AbstractController
         //dd($form);
         if($form->isSubmitted())
         {
-            dd($frais);
             $frais->setIsActive(true);
             $entityManager->persist($frais);
             $entityManager->flush();

@@ -26,6 +26,18 @@
             <script src="{{ asset("assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js") }}"></script>
             <!-- Argon JS -->
             <script src="{{ asset("assets/js/argon.js?v=1.2.0") }}"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#myInput").on("keyup", function() {
+                        var value = $(this).val().toLowerCase();
+                        $("#tbody tr").filter(function() {
+                            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                        });
+                    });
+                });
+            </script>
+            <script type="text/javascript" src="{{ asset('jsforpdf/jspdf.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('jsforpdf/pdfFromHTML.js') }}"></script>
         {% endblock %}
     </body>
 </html>

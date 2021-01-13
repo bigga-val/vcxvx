@@ -1,0 +1,99 @@
+{% include 'extension/sidebar.html.twig' %}
+<!-- Header -->
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- Card stats -->
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        {# <div class="col">
+                            <select name="classe" id="classe" class="form-control">
+                                {% for classe in liste_classes %}
+                                    <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select name="frais" id="frais" class="form-control">
+                                {% for frais in liste_frais %}
+                                    <option value="{{ frais.id }}">{{ frais.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        #}
+                        <div class="col">
+                            <input type="date" class="form-control" name="date_recherche" id="date_recherche">
+                        </div>
+                        <div class="col">
+                            
+                        </div>
+                        <div class="col text-right">
+                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <input type="text" class="form-control" placeholder="Rechercher..." id="myInput">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+
+                                <th scope="col">#</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Nom complet</th>
+                                <th scope="col">Classe</th>
+                                <th scope="col">Désignation</th>
+                                <th scope="col">M. Fixé</th>
+                                <th scope="col">M. Payé</th>
+                                <th scope="col">M. Resté</th>
+                                <th scope="col">Actions</th>
+
+                        </thead>
+
+                        <tbody id="tbody">
+                            {% set i = 0 %}
+                            {% for paiement in paiements %}
+                                {% set i = i + 1 %}
+                                <tr>
+                                    <td>{{ i }}</td>
+                                    <td>{{ paiement.date }}</td>
+                                    <td>{{ paiement.nom_complet }}</td>
+                                    <td>{{ paiement.classe }}</td>
+                                    <td>{{ paiement.frais }}</td>
+                                    <td>{{ paiement.montant }}</td>
+                                    <td>{{ paiement.montant_paye }}</td>
+                                    <td>{{ paiement.montant_reste }}</td>
+                                    <td><a href="">Facturer</a></td>
+                                </tr>
+
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "extension/footer.html.twig" %}
+</div>
+{% block javascripts %}
+    <script src="{{ asset('my_js/historique_paiement.js') }}"></script>
+{% endblock %}

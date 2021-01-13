@@ -92,4 +92,63 @@ class PaiementRepository extends ServiceEntityRepository
         );
         return $query->setParameter('inscription', $inscription)->getResult();
     }
+
+    public function findElevesOrdreFrais($frais, $classe)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            '
+                select e.nom_complet, p.montant_paye, p.montant_reste
+                from App\Entity\Eleve e, App\Entity\Paiement p, App\Entity\Inscription i, App\Entity\Frais f
+                where p.inscription = i.id 
+                    and p.frais = f.id
+                    and e.id = i.eleve
+                    and f.id = :frais
+                    and i.classe = :classe   
+            '
+        );
+        return $query->setParameter('frais', $frais)->setParameter('classe', $classe)->getResult();
+    }
+
+    public function findHistoriquePaiement($date)
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            '
+                select e.nom_complet, f.designation frais, f.montant montant, p.montant_paye, p.montant_reste, p.id, c.designation classe, o.designation option, substring(p.created_at, 1, 10) date  
+                FROM App\Entity\Paiement p, App\Entity\Frais f, App\Entity\Eleve e, App\Entity\Inscription i,
+                    App\Entity\Classe c, App\Entity\Option o
+                where substring(p.created_at, 1, 10) = :date
+                    and p.is_active = 1
+                    and f.id = p.frais
+                    and i.id = p.inscription
+                    and e.id = i.eleve
+                    and o.id = c.options
+                    and c.id = i.classe
+            '
+        );
+        return $query->setParameter('date', $date)->getResult();
+    }
+
+    public function findHistoriquePaiements()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            '
+                select e.nom_complet, f.designation frais, f.montant montant, p.montant_paye, p.montant_reste, 
+                    p.id, c.designation classe, o.designation option, substring(p.created_at, 1, 10) date  
+                FROM App\Entity\Paiement p, App\Entity\Frais f, App\Entity\Eleve e, App\Entity\Inscription i,
+                    App\Entity\Classe c, App\Entity\Option o
+                where p.is_active = :active
+                    and f.id = p.frais
+                    and i.id = p.inscription
+                    and e.id = i.eleve
+                    and o.id = c.options
+                    and c.id = i.classe
+                ORDER BY date asc
+            '
+        );
+        return $query->setParameter('active', true)->getResult();
+    }
 }
+

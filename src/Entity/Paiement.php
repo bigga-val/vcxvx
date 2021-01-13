@@ -48,6 +48,11 @@ class Paiement
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $is_active;
+
 
     public function getId(): ?int
     {
@@ -122,6 +127,18 @@ class Paiement
     public function setCreatedAt(?\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->is_active;
+    }
+
+    public function setIsActive(?bool $is_active): self
+    {
+        $this->is_active = $is_active;
 
         return $this;
     }

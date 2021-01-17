@@ -36,6 +36,8 @@ class PaiementController extends AbstractController
                 $paiement->setFrais($this->getDoctrine()->getRepository(Frais::class)
                     ->find($data['frais']));
                 $paiement->setInscription($eleve);
+                $paiement->setToken($data['_token']);
+                $paiement->setIsActive(true);
                 $paiement->setCreatedAt(new \DateTime('now'));
                 $entityManager->persist($paiement);
                 $entityManager->flush();
@@ -115,6 +117,18 @@ class PaiementController extends AbstractController
             'liste_classes'=>$liste_classes,
             'liste_frais'=>$liste_frais,
             'paiements'=>$historique
+        ]);
+    }
+
+    /**
+     * @Route("facture_mono_frais/{token}", name="facture_mono_frais")
+     */
+    public function facturer_mono_frais($token, EntityManagerInterface $entityManager)
+    {
+        $paiement = $this->getDoctrine()->getRepository(Paiement::class)
+            ->findOneByToken(['token', $token], []);
+        return $this->render('paiement/facture_mono_frais.html.twig', [
+            'paiement'=>$paiement
         ]);
     }
 }

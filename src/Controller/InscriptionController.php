@@ -23,13 +23,13 @@ class InscriptionController extends AbstractController
     public function index(): Response
     {
         //$inscriptions = $this->getDoctrine()->getRepository(Inscription::class)
-          //  ->findBy(['eleve.etat_id'=>1]);
+        //  ->findBy(['eleve.etat_id'=>1]);
         $inscripts = $this->getDoctrine()->getRepository(Inscription::class)
             ->findElevesActifs();
         //dd($inscripts);
         return $this->render('inscription/login.html.twig', [
             'controller_name' => 'InscriptionController',
-            'inscriptions'=>$inscripts
+            'inscriptions' => $inscripts
         ]);
     }
 

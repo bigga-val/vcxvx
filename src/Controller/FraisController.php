@@ -8,6 +8,7 @@ use App\Form\FraisType;
 use App\Form\TuteurType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,11 +17,13 @@ class FraisController extends AbstractController
     /**
      * @Route("/frais", name="frais")
      */
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, Request $request): Response
     {
         $frais = new Frais();
         $form = $this->createForm(FraisType::class, $frais);
         //dd($form);
+
+        $form->handleRequest($request);
         if($form->isSubmitted())
         {
             $frais->setIsActive(true);

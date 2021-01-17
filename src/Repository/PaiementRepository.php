@@ -85,7 +85,7 @@ class PaiementRepository extends ServiceEntityRepository
         $em = $this->getEntityManager();
         $query = $em->createQuery(
             '
-            select f.designation, f.montant, f.id, p.created_at, p.montant_paye, p.montant_reste
+            select f.designation, f.montant, f.id, p.created_at, p.montant_paye, p.montant_reste, p.token
                 from App\Entity\Frais f, App\Entity\Paiement p, App\Entity\Inscription i
                 where f.id = p.frais and i.id = p.inscription and i.id = :inscription
             '

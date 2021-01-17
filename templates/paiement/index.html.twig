@@ -103,7 +103,7 @@
                                             {{ frais.montant_reste }}
                                         </td>
                                         <td>
-                                            <a href="">Facturer</a>
+                                            <a href="{{ path('facture_mono_frais', {'token': frais.token}) }}">Facturer</a>
                                         </td>
                                     </tr>
                                         {% set i = i + i %}

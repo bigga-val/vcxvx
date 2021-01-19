@@ -29,14 +29,15 @@
                         <div class="col">
                             <h3 class="mb-0">Eleves non actifs</h3>
                         </div>
-                        <div class="col text-right">
-                            <button onclick="HTMLtoPDF()" class="btn btn-sm btn-primary">See all</button>
+                        <div class="col-md-4 text-right">
+                            <input type="text" class="form-control my-2" id="myInput" placeholder="Recherche...">
+{#                            <button onclick="HTMLtoPDF()" class="btn btn-sm btn-primary">See all</button>#}
                         </div>
                     </div>
                 </div>
-                <div class="container" id="HTMLtoPDF">
-                    <input type="text" class="form-control my-2" id="myInput" placeholder="Recherche...">
-                    <table class="table align-items-center table-flush">
+{#                <div class="container" id="HTMLtoPDF">#}
+                    <div class="table-responsive" id="HTMLtoPDF">
+                        <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>

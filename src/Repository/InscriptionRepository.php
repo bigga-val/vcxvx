@@ -48,15 +48,15 @@ class InscriptionRepository extends ServiceEntityRepository
     }
     */
 
-    public function findElevesActifs()
+    public function findElevesActifs($id_annee)
     {
         $entityManager = $this->getEntityManager();
         $query = $entityManager->createQuery('
             select i
             from App\Entity\Inscription i, App\Entity\Eleve e
-            where e.id = i.eleve and e.etat = 1
+            where e.id = i.eleve and e.etat = 1 and i.annee_scolaire = :annee
         ');
-        return $query->getResult();
+        return $query->setParameter('annee', $id_annee)->getResult();
     }
 
     public function findElevesNonActifs()

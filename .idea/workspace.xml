@@ -2,16 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2363c5d4-2c58-45c2-b1d3-910504cf3d15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210113204754.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/logo_insoft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/paiement/facture_mono_frais.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210118092833.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210119013850.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210119014638.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AnneeScolaireController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entity/EtatAnnee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Repository/EtatAnneeRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/annee_scolaire/edit_year.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/annee_scolaire/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/FraisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FraisController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PaiementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaiementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Paiement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Paiement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PaiementRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PaiementRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/paiement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/AnneeScolaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/AnneeScolaire.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/AnneeScolaireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnneeScolaireRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/InscriptionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/InscriptionRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/extension/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/extension/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/extension/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/extension/sidebar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inscription/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/inscription/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/login.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/facture_mono_frais.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/facture_mono_frais.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +158,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/frais" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -187,6 +201,14 @@
       <workItem from="1610785484008" duration="2411000" />
       <workItem from="1610819788097" duration="420000" />
       <workItem from="1610828551080" duration="2269000" />
+      <workItem from="1610960115408" duration="7793000" />
+      <workItem from="1610997144973" duration="793000" />
+      <workItem from="1611018783945" duration="6089000" />
+      <workItem from="1611034786223" duration="656000" />
+      <workItem from="1611038011601" duration="1611000" />
+      <workItem from="1611045303164" duration="2724000" />
+      <workItem from="1611050313495" duration="5549000" />
+      <workItem from="1611078262609" duration="2807000" />
     </task>
     <servers />
   </component>
@@ -197,9 +219,33 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="141" y="42" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611065176961">
+      <screen x="0" y="0" width="819" height="574" />
+    </state>
+    <state x="141" y="42" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.819.574@0.0.819.574" timestamp="1611065176961" />
+    <state x="191" y="42" key="FileChooserDialogImpl" timestamp="1610967225073">
+      <screen x="0" y="0" width="819" height="574" />
+    </state>
+    <state x="191" y="42" key="FileChooserDialogImpl/0.0.819.574@0.0.819.574" timestamp="1610967225073" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1610355429443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610355429443" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/Controller/AnneeScolaireController.php</url>
+          <line>17</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/templates/annee_scolaire/edit_year.html.twig</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

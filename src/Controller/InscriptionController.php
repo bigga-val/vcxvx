@@ -9,27 +9,39 @@ use App\Entity\Eleve;
 use App\Entity\Etat;
 use App\Entity\Inscription;
 use App\Entity\Tuteur;
+use App\Controller\AnneeScolaireController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+use function mysql_xdevapi\getSession;
 
 class InscriptionController extends AbstractController
 {
     /**
      * @Route("/inscriptions", name="inscriptions")
      */
-    public function index(): Response
+    public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $session = new Session();
+        //dd($session->get('annee_courante'));
         //$inscriptions = $this->getDoctrine()->getRepository(Inscription::class)
         //  ->findBy(['eleve.etat_id'=>1]);
         $inscripts = $this->getDoctrine()->getRepository(Inscription::class)
-            ->findElevesActifs();
+            ->findElevesActifs($session->get('id_annee'));
+
         //dd($inscripts);
+        $user = $this->getUser();
+        $annee_en_cours = $this->getDoctrine()->getRepository(AnneeScolaire::class)
+            ->findOneBy(['etat'=>'en cours'], []);
+        $session = new Session();
+        //dd($session->get('annee_courante'));
         return $this->render('inscription/login.html.twig', [
             'controller_name' => 'InscriptionController',
-            'inscriptions' => $inscripts
+            'inscriptions' => $inscripts,
+            'annee_en_cours'=>$annee_en_cours
         ]);
     }
 

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AnneeScolaireRepository;
+use App\Repository\EtatAnneeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=AnneeScolaireRepository::class)
+ * @ORM\Entity(repositoryClass=EtatAnneeRepository::class)
  */
-class AnneeScolaire
+class EtatAnnee
 {
     /**
      * @ORM\Id
@@ -18,20 +18,14 @@ class AnneeScolaire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=100, nullable=true)
      */
     private $designation;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $is_active;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=EtatAnnee::class)
-     */
-    private $etat;
-
 
     public function getId(): ?int
     {
@@ -43,7 +37,7 @@ class AnneeScolaire
         return $this->designation;
     }
 
-    public function setDesignation(string $designation): self
+    public function setDesignation(?string $designation): self
     {
         $this->designation = $designation;
 
@@ -55,21 +49,9 @@ class AnneeScolaire
         return $this->is_active;
     }
 
-    public function setIsActive(bool $is_active): self
+    public function setIsActive(?bool $is_active): self
     {
         $this->is_active = $is_active;
-
-        return $this;
-    }
-
-    public function getEtat(): ?EtatAnnee
-    {
-        return $this->etat;
-    }
-
-    public function setEtat(?EtatAnnee $etat): self
-    {
-        $this->etat = $etat;
 
         return $this;
     }

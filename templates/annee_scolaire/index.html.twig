@@ -27,45 +27,32 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Liste d'élèves actifs</h3>
+                            <h3 class="mb-0">Liste Eleves Actifs</h3>
                         </div>
-                        <div class="col-md-4 text-right">
-                            <input type="text" class="form-control" id="myInput" placeholder="Recherche...">
+                        <div class="col text-right">
+                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
                         </div>
                     </div>
                 </div>
                 <div class="table-responsive">
-
+                    <input type="text" class="form-control" id="myInput" placeholder="Recherche...">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nom complet</th>
-                            <th scope="col">Classe</th>
-                            <th scope="col">Type</th>
+                            <th scope="col">Désignation</th>
+                            <th scope="col">Etat</th>
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody id="tbody">
                         {% set i = 1 %}
-                        {% for inscription in inscriptions %}
+                        {% for annee in annees %}
                             <tr>
-                                <td>
-                                    {{ i }}
-                                </td>
-                                <td>
-                                    {{ inscription.eleve.nomComplet|upper }}
-                                </td>
-                                <td>
-                                    {{ inscription.classe.designation ~' '~inscription.classe.options.designation }}
-                                </td>
-                                <td>
-                                    {{ inscription.eleve.etat.designation }}
-                                </td>
-                                <td>
-                                    <a href="{{ path('paiement', {'inscription':inscription.id}) }}">Payer</a>
-                                    <a href="{{ path('affectation_eleve', {'id': inscription.id}) }}">Affecter</a>
-                                </td>
+                                <td>{{ i }}</td>
+                                <td>{{ annee.designation }}</td>
+                                <td>{{ annee.etat.designation }}</td>
+                                <td><a href="{{ path('update_year', {'id': annee.id}) }}">Editer</a></td>
                             </tr>
                             {% set i = i + 1 %}
                         {% endfor %}

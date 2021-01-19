@@ -25,19 +25,24 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header border-0">
+                    <form method="post">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Page visit</h3>
+                            <h3 class="mb-0">Inscription de l'Elève</h3>
                         </div>
                         <div class="col text-right">
-                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="ENREGISTRER">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="container">
-                    <form method="post">
+                        <h6 class="heading-small text-muted mb-4">Information élève</h6>
+                        <div class="pl-lg-4">
                         <div class="row">
                             <div class="col">
+                                <label class="form-control-label" for="input-username">Tuteur</label>
                                 <select name="tuteur" id="tuteur" class="form-control">
                                     {% for tuteur in tuteurs %}
                                         <option value="{{ tuteur.id }}">{{ tuteur.nomComplet }}</option>
@@ -45,6 +50,7 @@
                                 </select>
                             </div>
                             <div class="col">
+                                <label class="form-control-label" for="input-username">Categorie de l'élève</label>
                                 <select name="categorie" id="categorie" class="form-control">
                                     {% for categorie in categories %}
                                         <option value="{{ categorie.id }}">{{ categorie.designation }}</option>
@@ -52,6 +58,7 @@
                                 </select>
                             </div>
                             <div class="col">
+                                <label class="form-control-label" for="input-username">Etat</label>
                                 <select name="etat" id="etat" class="form-control">
                                     {% for etat in etats %}
                                         <option value="{{ etat.id }}">{{ etat.designation }}</option>
@@ -59,6 +66,7 @@
                                 </select>
                             </div>
                             <div class="col">
+                                <label class="form-control-label" for="input-username">Option</label>
                                 <select name="classe" id="classe" class="form-control">
                                     {% for classe in classes %}
                                         <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
@@ -69,22 +77,30 @@
                         <div class="row my-2">
                             <div class="col">
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Nom Complet</label>
                                     <input type="text" class="form-control" placeholder="Nom et Postnom" name="nom_complet" id="nom_complet">
                                     <input type="hidden" name="_token" value="{{ csrf_token('inscription') }}">
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-username">Adresse</label>
                                     <input type="text" class="form-control" placeholder="Adresse" name="adresse" id="adresse">
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Lieu de naissance" name="Lieu_naissance" id="lieu_naissance">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" placeholder="date_naissance" name="date_naissance">
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-primary btn-sm" value="ENREGISTRER">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Lieu de Naissance</label>
+                                            <input type="text" class="form-control" placeholder="Lieu de naissance" name="Lieu_naissance" id="lieu_naissance">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Date de Naissance</label>
+                                            <input type="date" class="form-control" placeholder="date_naissance" name="date_naissance">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </form>
                 </div>

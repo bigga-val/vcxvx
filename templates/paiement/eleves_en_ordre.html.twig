@@ -10,7 +10,7 @@
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                             <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#">Accueil</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+                            <li class="breadcrumb-item active" aria-current="page">Liste d'eleves en ordre</li>
                         </ol>
                     </nav>
                 </div>
@@ -27,7 +27,11 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
+                            <h3 class="mb-0">Elèves en ordre</h3>
+                        </div>
+                        <div class="col text-right">
                             <select name="classe" id="classe" class="form-control">
+                                <option selected="selected">Choisir une classe...</option>>
                                 {% for classe in liste_classes %}
                                     <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
                                 {% endfor %}
@@ -35,17 +39,13 @@
                         </div>
                         <div class="col">
                             <select name="frais" id="frais" class="form-control">
+                                <option selected="selected">Choisir un frais...</option>>
                                 {% for frais in liste_frais %}
                                     <option value="{{ frais.id }}">{{ frais.designation }}</option>
                                 {% endfor %}
                             </select>
                         </div>
-                        <div class="col">
                             <input type="button" class="btn btn-primary" name="recherche" id="recherche" value="RECHERCHER">
-                        </div>
-                        <div class="col text-right">
-                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                        </div>
                     </div>
                 </div>
                 <div class="table-responsive" id="tableau">

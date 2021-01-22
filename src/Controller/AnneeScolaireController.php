@@ -23,12 +23,6 @@ class AnneeScolaireController extends AbstractController
     {
         $annees = $this->getDoctrine()->getRepository(AnneeScolaire::class)
             ->findAll();
-        $session = new Session();
-        $session->start();
-        $session->set('bien', 'jfkdsf');
-        $session->remove('bien');
-        //dd($session->get('bien'));
-        //dd($session->get('bien'));
         return $this->render('annee_scolaire/index.html.twig', [
             'controller_name' => 'AnneeScolaireController',
             'annees'=>$annees

@@ -2,30 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2363c5d4-2c58-45c2-b1d3-910504cf3d15" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210118092833.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210119013850.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210119014638.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/AnneeScolaireController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/EtatAnnee.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/EtatAnneeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/annee_scolaire/edit_year.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/annee_scolaire/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210120085216.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/Version20210120094150.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/eleve/eleves_disponibles.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/eleve/profil_eleve.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AnneeScolaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AnneeScolaireController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/EleveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EleveController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/InscriptionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/InscriptionController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/AnneeScolaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/AnneeScolaire.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/AnneeScolaireRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/AnneeScolaireRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/InscriptionRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/InscriptionRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/extension/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/extension/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PaiementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PaiementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Eleve.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Eleve.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PaiementRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PaiementRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/extension/sidebar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/extension/sidebar.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/inscription/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/inscription/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/inscription/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/paiement/facture_mono_frais.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/facture_mono_frais.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/eleves_en_ordre.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/eleves_en_ordre.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/historique_paiement.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/historique_paiement.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/paiement/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/paiement/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tuteur/nouveau.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/tuteur/nouveau.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,16 +155,16 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/frais" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/tuteur" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Bigga\schoolapp\public\assets\img" />
-      <recent name="C:\Users\Bigga\schoolapp\public" />
-      <recent name="C:\Users\Bigga\schoolapp\templates" />
+      <recent name="C:\Users\Bigga\schoolapp\templates\tuteur" />
+      <recent name="C:\Users\Bigga\schoolapp\templates\paiement" />
+      <recent name="C:\Users\Bigga\schoolapp\templates\eleve" />
+      <recent name="C:\Users\Bigga\schoolapp\templates\frais" />
       <recent name="C:\Users\Bigga\schoolapp\templates\inscription" />
-      <recent name="C:\Users\Bigga\schoolapp" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -208,7 +205,13 @@
       <workItem from="1611038011601" duration="1611000" />
       <workItem from="1611045303164" duration="2724000" />
       <workItem from="1611050313495" duration="5549000" />
-      <workItem from="1611078262609" duration="2807000" />
+      <workItem from="1611078262609" duration="3230000" />
+      <workItem from="1611132221006" duration="10689000" />
+      <workItem from="1611145588014" duration="485000" />
+      <workItem from="1611171955285" duration="5543000" />
+      <workItem from="1611251752972" duration="9886000" />
+      <workItem from="1611302967591" duration="5689000" />
+      <workItem from="1611310282415" duration="3447000" />
     </task>
     <servers />
   </component>
@@ -227,10 +230,19 @@
       <screen x="0" y="0" width="819" height="574" />
     </state>
     <state x="191" y="42" key="FileChooserDialogImpl/0.0.819.574@0.0.819.574" timestamp="1610967225073" />
+    <state width="831" height="566" key="SwitcherDM" timestamp="1611312558791">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="831" height="566" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1611312558791" />
+    <state width="498" height="446" key="SwitcherDM/0.0.819.574@0.0.819.574" timestamp="1611140862911" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1610355429443">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1610355429443" />
+    <state x="73" y="-1" width="672" height="678" key="search.everywhere.popup" timestamp="1611139983110">
+      <screen x="0" y="0" width="819" height="574" />
+    </state>
+    <state x="73" y="-1" width="672" height="678" key="search.everywhere.popup/0.0.819.574@0.0.819.574" timestamp="1611139983110" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

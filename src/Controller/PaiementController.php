@@ -24,7 +24,7 @@ class PaiementController extends AbstractController
     public function index($inscription, Request $request, EntityManagerInterface $entityManager): Response
     {
         $eleve = $this->getDoctrine()->getRepository(Inscription::class)
-            ->find($inscription);
+            ->findOneBy(['token'=>$inscription], []);
         if ($request->isMethod('POST'))
         {
             $data = $request->request->all();
@@ -43,19 +43,46 @@ class PaiementController extends AbstractController
                 $entityManager->flush();
             }
         }
-        //dd($eleve);
         $frais_non_regles = $this->getDoctrine()->getRepository(Paiement::class)
             ->NonRegles($inscription);
-        //dd($frais_non_regles)
         $frais_regles = $this->getDoctrine()->getRepository(Paiement::class)
             ->findFraisRegles($inscription);
-        //dd($frais_regles);
         return $this->render('paiement/index.html.twig', [
             'controller_name' => 'PaiementController',
-            'eleve'=>$eleve,
+            'ordre'=>$frais_regles,
             'frais'=>$frais_non_regles,
-            'ordre'=>$frais_regles
+            'eleve'=>$eleve
         ]);
+    }
+
+    /**
+     * @param $token
+     * @param $inscription
+     * @param EntityManagerInterface $entityManager
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route("ajouter_partie/{token}/{inscription}/{new_token}", name="ajouter_partie")
+     */
+    public function ajouter_partie($token, $inscription, $new_token, EntityManagerInterface $entityManager, Request $request)
+    {
+        $paiement = $this->getDoctrine()->getRepository(Paiement::class)
+            ->findOneBy(['token'=>$token], []);
+        $inscript = $this->getDoctrine()->getRepository(Inscription::class)
+            ->findOneBy(['token'=>$inscription], []);
+        $partie = new Paiement();
+        $partie->setCreatedAt(new \DateTime('now'));
+        $partie->setIsActive(true);
+        $partie->setInscription($inscript);
+        $partie->setCretedBy($this->getUser());
+        $partie->setMontantPaye($paiement->getMontantReste());
+        $partie->setMontantReste(0);
+        $partie->setFrais($paiement->getFrais());
+        $partie->setToken($new_token);
+
+        //dd($partie);
+        $entityManager->persist($partie);
+        $entityManager->flush();
+        return $this->redirectToRoute('paiement', ['inscription'=>$inscription]);
     }
 
     /**
@@ -131,4 +158,6 @@ class PaiementController extends AbstractController
             'paiement'=>$paiement
         ]);
     }
+
+
 }

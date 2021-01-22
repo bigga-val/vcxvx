@@ -52,6 +52,7 @@ class InscriptionController extends AbstractController
     {
         if($request->isMethod('POST'))
         {
+            $session = new Session();
             $data = $request->request->all();
             if($this->isCsrfTokenValid('inscription', $data['_token']))
             {
@@ -74,7 +75,8 @@ class InscriptionController extends AbstractController
                     ->find($data['classe']));
                 $inscription->setEleve($eleve);
                 $inscription->setAnneeScolaire($this->getDoctrine()->getRepository(AnneeScolaire::class)
-                    ->find(1));
+                    ->find($session->get('id_annee')));
+                $inscription->setToken($data['_token']);
                 $entityManager->persist($inscription);
 
                 $entityManager->flush();

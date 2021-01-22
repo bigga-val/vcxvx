@@ -50,7 +50,7 @@ class PaiementRepository extends ServiceEntityRepository
 
     public function findFraisNonRegles($inscription)
     {
-        $em = $this->getEntityManager($inscription);
+        $em = $this->getEntityManager();
         $query = $em->createQuery(
             '
             select fr.designation, fr.montant, fr.id
@@ -59,7 +59,7 @@ class PaiementRepository extends ServiceEntityRepository
                 (
                 select f.id
                 from App\Entity\Frais f, App\Entity\Paiement p, App\Entity\Inscription i
-                where f.id = p.frais and i.id = p.inscription and p.inscription = :inscription
+                where f.id = p.frais and i.id = p.inscription and i.token = :inscription
                 )
             '
         );
@@ -75,7 +75,7 @@ class PaiementRepository extends ServiceEntityRepository
             where fr.id not in 
                 (select f.id
                 from App\Entity\Frais f, App\Entity\Paiement p, App\Entity\Inscription i
-                where f.id = p.frais and i.id = p.inscription and p.inscription = :inscription)'
+                where f.id = p.frais and i.id = p.inscription and i.token = :inscription)'
         );
         return $query->setParameter('inscription', $inscription)->getResult();
     }
@@ -87,7 +87,7 @@ class PaiementRepository extends ServiceEntityRepository
             '
             select f.designation, f.montant, f.id, p.created_at, p.montant_paye, p.montant_reste, p.token
                 from App\Entity\Frais f, App\Entity\Paiement p, App\Entity\Inscription i
-                where f.id = p.frais and i.id = p.inscription and i.id = :inscription
+                where f.id = p.frais and i.id = p.inscription and i.token = :inscription
             '
         );
         return $query->setParameter('inscription', $inscription)->getResult();

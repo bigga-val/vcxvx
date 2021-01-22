@@ -27,44 +27,44 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Liste d'élèves actifs</h3>
+                            <h3 class="mb-0">Eleves non actifs</h3>
                         </div>
                         <div class="col-md-4 text-right">
-                            <input type="text" class="form-control" id="myInput" placeholder="Recherche...">
+                            <input type="text" class="form-control my-2" id="myInput" placeholder="Recherche...">
+                            {#                            <button onclick="HTMLtoPDF()" class="btn btn-sm btn-primary">See all</button>#}
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
-
+                {#                <div class="container" id="HTMLtoPDF">#}
+                <div class="table-responsive" id="HTMLtoPDF">
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nom complet</th>
-                            <th scope="col">Classe</th>
                             <th scope="col">Type</th>
+                            <th scope="col">Date Création</th>
                             <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody id="tbody">
                         {% set i = 1 %}
-                        {% for inscription in inscriptions %}
+                        {% for eleve in eleves %}
                             <tr>
                                 <td>
                                     {{ i }}
                                 </td>
                                 <td>
-                                    {{ inscription.eleve.nomComplet|upper }}
+                                    {{ eleve.nomComplet|upper }}
                                 </td>
                                 <td>
-                                    {{ inscription.classe.designation ~' '~inscription.classe.options.designation }}
+                                    {{ eleve.etat.designation }}
                                 </td>
                                 <td>
-                                    {{ inscription.eleve.etat.designation }}
+                                    {{ eleve.createdAt|date('d-m-Y') }}
                                 </td>
                                 <td>
-                                    <a href="{{ path('paiement', {'inscription':inscription.token}) }}">Payer</a>
-                                    <a href="{{ path('affectation_eleve', {'id': inscription.token}) }}">Affecter</a>
+                                    <a href="{{ path('profil_eleve', {'id': eleve.id}) }}">Confirmer Place</a>
                                 </td>
                             </tr>
                             {% set i = i + 1 %}
@@ -77,11 +77,3 @@
     </div>
     {% include "extension/footer.html.twig" %}
 </div>
-
-
-<tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-</tr>

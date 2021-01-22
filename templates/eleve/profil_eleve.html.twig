@@ -1,0 +1,150 @@
+{% include 'extension/sidebar.html.twig' %}
+<!-- Header -->
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#">Accueil</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Inscription</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <!-- Card stats -->
+        </div>
+    </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header border-0">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h3 class="mb-0">Profil Elève</h3>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <span id="modifier" class="btn btn-primary">Modifier les Informations</span>
+                            {#                            <button onclick="HTMLtoPDF()" class="btn btn-sm btn-primary">See all</button>#}
+                        </div>
+                    </div>
+                </div>
+                {#                <div class="container" id="HTMLtoPDF">#}
+                <div class="table-responsive" id="HTMLtoPDF">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <span>Nom: {{ eleve.nomComplet }}</span>
+                            </div>
+                            <div class="col">
+                                <span>Lieu et Date Naissance: {{ eleve.lieuNaissance ~' '~eleve.dateNaissance|date('d/m/Y') }}</span>
+                            </div>
+                            <div class="col">
+                                <span>Adresse : {{ eleve.adresse }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <span>Tuteur : {{ eleve.tuteur.nomComplet }}</span>
+                            </div>
+                            <div class="col">
+                                <span>Categorie : {{ eleve.categorie.designation }}</span>
+                            </div>
+                            <div class="col">
+                                <span>Etat: {{ eleve.etat.designation }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <form method="post">
+                                    <h3>Confirmer la Place</h3>
+                                    <div class="form-group">
+                                        <select name="classe" class="form-control" id="classe">
+                                            <option value="-1" hidden selected disabled>Choisir la classe</option>
+                                            {% for classe in classes %}
+                                                <option value="{{ classe.id }}">{{ classe.designation~' '~classe.options.designation }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="hidden" value="{{ csrf_token('place') }}" name="_token">
+                                        <input type="submit" class="btn btn-primary" value="Confirmer Place">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row" id="form_modifier">
+                            <div class="col">
+                                <form method="post" action="{{ path('modifier_eleve') }}">
+                                    <div class="form-group">
+                                        <input type="text" name="nom_complet" value="{{ eleve.nomComplet }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="adresse" value="{{ eleve.adresse }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="lieu_naissance" value="{{ eleve.lieuNaissance }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="date" name="date_naissance" class="form-control" value="{{ eleve.dateNaissance|date('d/m/Y') }}">
+                                        <input type="hidden" value="{{ csrf_token('modifier') }}" name="_token">
+                                        <input type="hidden" value="{{ eleve.id }}" name="eleve">
+                                    </div>
+                                    <div class="form-group"></div>
+
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <select name="tuteur" id="tuteur" class="form-control">
+                                        <option value="-1" selected hidden disabled>changer le tuteur</option>
+                                        {% for tuteur in tuteurs %}
+                                            <option value="{{ tuteur.id }}">{{ tuteur.nomComplet }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="categorie" id="categorie" class="form-control">
+                                        <option value="-1" selected hidden disabled>Modifier l'état</option>
+                                        {% for categorie in categories %}
+                                            <option value="{{ categorie.id }}">{{ categorie.designation }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select name="etat" id="etat" class="form-control">
+                                        <option value="-1" selected hidden disabled>Modifier le tuteur</option>
+                                        {% for etat in etats %}
+                                            <option value="{{ etat.id }}">{{ etat.designation }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <a href="" class="btn btn-danger">Annuler</a>
+                                    <input type="submit" class="btn btn-primary" value="ENREGISTRER">
+                                </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "extension/footer.html.twig" %}
+</div>
+<script>
+    $(document).ready(function(){
+        $("#form_modifier").hide()
+        $("#modifier").on('click', function(){
+            $("#form_modifier").show()
+        })
+    })
+</script>

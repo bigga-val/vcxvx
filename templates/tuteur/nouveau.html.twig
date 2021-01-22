@@ -27,27 +27,26 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h3 class="mb-0">Page visits</h3>
+                            <h3 class="mb-0">Enregistrer un tuteur</h3>
                         </div>
+                        {{ form_start(form) }}
                         <div class="col text-right">
-                            <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                            <input type="SUBMIT" class="btn btn-primary btn-slack" value="ENREGISTRER">
                         </div>
                     </div>
                 </div>
                 <div class="table-responsive">
                     <div class="container">
-                        {{ form_start(form) }}
-                        <div class="row mb-2">
+                        <div class="row pb-100">
                             <div class="col">
-                                {{ form_label(form.nom_complet) }}
+                                <label class="form-control-label" for="input-username">Nom Complet</label>
                                 {{ form_widget(form.nom_complet, {attr: { 'class': 'form-control', 'placeholder':'Entrez le nom complet' }}) }}
                             </div>
                             <div class="col">
-                                {{ form_label(form.telephone) }}
+                                <label class="form-control-label" for="input-username">Téléphone</label>
                                 {{ form_widget(form.telephone, {attr: { 'class': 'form-control', 'placeholder':'Entrez le numero téléphone' }}) }}
                             </div>
                         </div>
-                        <input type="SUBMIT" class="btn btn-primary btn-sm" value="ENREGISTRER">
                         {{ form_end(form) }}
                     </div>
                 </div>

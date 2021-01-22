@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <select name="frais" id="frais" class="form-control form-control-sm">
                                             {% for frais in frais %}
-                                                <option value="{{ frais.id }}">{{ frais.designation~' '~frais.montant }}</option>
+                                                <option label="{{frais.designation~' '~frais.montant }}" value="{{ frais.id }}">{{ frais.montant }}</option>
                                             {% endfor %}
                                         </select>
                                     </div>
@@ -50,12 +50,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="hidden" name="_token" value="{{ csrf_token('paiement') }}">
-                                        <input type="text" class="form-control form-control-sm" name="montant_paye" placeholder="Montant payé">
+                                        <input type="text" class="form-control form-control-sm" name="montant_paye" id="montant_paye" placeholder="Montant payé">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-sm" name="montant_reste" placeholder="Montant resté">
+                                        <input type="hidden" class="form-control form-control-sm" id="montant_reste" name="montant_reste" placeholder="Montant resté">
+                                        <input type="text" class="form-control form-control-sm" id="reste" name="reste" placeholder="Montant resté" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -104,6 +105,10 @@
                                         </td>
                                         <td>
                                             <a href="{{ path('facture_mono_frais', {'token': frais.token}) }}">Facturer</a>
+                                            {% if frais.montant_reste > 0 %}
+                                                <a href="{{ path('ajouter_partie', {'token': frais.token, 'inscription': eleve.token, 'new_token': csrf_token('new_token')}) }}">Ajouter</a>
+                                            {% endif %}
+
                                         </td>
                                     </tr>
                                         {% set i = i + i %}
@@ -153,3 +158,23 @@
     </div>
     {% include "extension/footer.html.twig" %}
 </div>
+<script>
+    $(document).ready(function(){
+        $("#montant_paye").on("keyup", function(){
+            let paye = $(this).val()
+            let montant = $("#frais").val()
+            let option = $("#frais").find("option[value="+montant+"]").text()
+
+            if(isNaN(paye))
+            {
+                console.log("NaN")
+                return false
+            }else{
+                let reste = option - paye
+                console.log(reste)
+                $("#montant_reste").val(reste)
+                $("#reste").val(reste)
+            }
+        })
+    })
+</script>

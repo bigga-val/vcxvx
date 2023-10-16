@@ -4237,6 +4237,7 @@
       <change afterPath="$PROJECT_DIR$/schoolapp/templates/parents/new.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/templates/parents/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schoolapp" beforeDir="false" afterPath="$PROJECT_DIR$/schoolapp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schoolapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schoolapp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schoolapp/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/schoolapp/composer.json" afterDir="false" />
@@ -4416,7 +4417,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/my_js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../schoolapp - Copy (2)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -4485,7 +4486,7 @@
       <workItem from="1697361739327" duration="846000" />
       <workItem from="1697400486982" duration="3670000" />
       <workItem from="1697430853970" duration="2343000" />
-      <workItem from="1697451154207" duration="1660000" />
+      <workItem from="1697451154207" duration="3771000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2363c5d4-2c58-45c2-b1d3-910504cf3d15" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/migrations/Version20231002215608.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/public/assets/js/dashboard.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/public/assets/js/dashboard2.js" afterDir="false" />
@@ -4236,7 +4238,6 @@
       <change afterPath="$PROJECT_DIR$/schoolapp/templates/parents/index.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/templates/parents/new.html.twig" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/schoolapp/templates/parents/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schoolapp" beforeDir="false" afterPath="$PROJECT_DIR$/schoolapp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/schoolapp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/schoolapp/.idea/workspace.xml" afterDir="false" />
@@ -4417,17 +4418,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TEST\Desktop\schoolapp\public" />
       <recent name="C:\Users\TEST\Desktop\schoolapp" />
       <recent name="C:\Users\TEST\Desktop\schoolapp\public\my_js" />
       <recent name="C:\Users\TEST\Desktop\schoolapp\templates\paiement" />
       <recent name="C:\Users\Bigga\schoolapp\src\Form" />
-      <recent name="C:\Users\Bigga\schoolapp\templates" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
